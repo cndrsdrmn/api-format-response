@@ -1,0 +1,29 @@
+{
+    "name": "cndrsdrmn/api-format-response",
+    "description": "Laravel / Lumen API Format Response",
+    "minimum-stability": "stable",
+    "keywords": [ "api", "format response", "lumen", "laravel" ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/pagination": "^5.8",
+        "illuminate/routing": "5.8.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "authors": [
+        {
+            "name": "cndrsdrmn",
+            "email": "cndrsdrmn@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cndrsdrmn\\ApiFormatResponse\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
