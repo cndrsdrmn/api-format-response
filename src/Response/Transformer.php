@@ -70,9 +70,7 @@ class Transformer extends ApiFormatResponse
 				? $this->getClaseName($this->resource, self::RESOURCE_PAGINATE)
 				: static::DEFAULT_PAGINATE;
 
-		$resource = new $className($this->resource, $status, $message);
-
-		return $resource;
+        return new $className($this->resource, $status, $message);
 	}
 
 	/**
@@ -151,8 +149,12 @@ class Transformer extends ApiFormatResponse
 	protected function getClaseName($resource, string $baseNamespace)
 	{
 		$class     = $resource instanceof Model ? $resource : $resource->first();
-		$namespace = explode('\\', get_class($class));
-		$className = sprintf('%s\\%sResource', $baseNamespace, end($namespace));
+		$className = '';
+
+		if (!is_null($class)) {
+            $namespace = explode('\\', get_class($class));
+            $className = sprintf('%s\\%sResource', $baseNamespace, end($namespace));
+        }
 
 		return $className;
 	}
