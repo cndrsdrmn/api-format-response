@@ -5,7 +5,7 @@ namespace Cndrsdrmn\ApiFormatResponse;
 use Cndrsdrmn\ApiFormatResponse\Contracts\ResponseFactory as FactoryContract;
 use Cndrsdrmn\ApiFormatResponse\Response\Basic;
 use Cndrsdrmn\ApiFormatResponse\Response\Transformer;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Routing\ResponseFactory as BaseResponseFactory;
 
 class ResponseFactory extends BaseResponseFactory implements FactoryContract
@@ -77,12 +77,12 @@ class ResponseFactory extends BaseResponseFactory implements FactoryContract
     /**
      * Return a new JSON response pagination from the application.
      * 
-     * @param  \Illuminate\Pagination\LengthAwarePaginator  $collections
+     * @param  \Illuminate\Pagination\AbstractPaginator  $collections
      * @param  integer                                      $status
      * @param  string                                       $message
      * @return \Illuminate\Http\JsonResponse
      */
-    public function paginate(LengthAwarePaginator $collections, int $status = 200, string $message = '')
+    public function paginate(AbstractPaginator $collections, int $status = 200, string $message = '')
     {
         $format = $this->getFormat('success', $collections);
 

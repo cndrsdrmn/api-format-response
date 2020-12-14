@@ -3,7 +3,7 @@
 namespace Cndrsdrmn\ApiFormatResponse\Contracts;
 
 use Illuminate\Contracts\Routing\ResponseFactory as BaseContract;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\AbstractPaginator;
 
 interface ResponseFactory extends BaseContract
 {
@@ -54,10 +54,10 @@ interface ResponseFactory extends BaseContract
     /**
      * Return a new JSON response pagination from the application.
      * 
-     * @param  \Illuminate\Pagination\LengthAwarePaginator  $collections
+     * @param  \Illuminate\Pagination\AbstractPaginator  $collections
      * @param  integer                                      $status
      * @param  string                                       $message
      * @return \Illuminate\Http\JsonResponse
      */
-    public function paginate(LengthAwarePaginator $collections, int $status = 200, string $message = '');
+    public function paginate(AbstractPaginator $collections, int $status = 200, string $message = '');
 }
